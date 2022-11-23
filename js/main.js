@@ -8,7 +8,7 @@ class serie {
         this.nombreEpisodesVues = nombreEpisodesVues;
         this.genre = genre;
         this.description = description;
-    }
+    };
 }
 
 //c'est une videotheque pas une serietheque, il serait bon de definir également une classe films
@@ -28,7 +28,7 @@ let fmab = new serie("Fullmetal Alchemist Brotherood", "Yasuhiro Irie", 24, 64, 
 let thewalkingdead = new serie("The Walking Dead", "Frank Darabont", 45, 177, 1, "Apocalypse zombie.", "L'histoire suit Rick Grimes, l'adjoint du shérif local, alors qu'il se réveille d'un coma de plusieurs semaines pour découvrir un monde ravagé par une épidémie de zombie. Aprés avoir retrouvé sa famille il devient rapidement le chef d'une bande de survivants. Ils devront faire face aux morts-vivants, au manque de ressources et aux autres survivants parfois mal intentionnés.")
 
 // création d'un tableau videotheque pour contenir chaque objet serie crée précedemment
-let videotheque = []
+let videotheque = [];
 
 videotheque.push(erased);
 videotheque.push(breakingBad);
