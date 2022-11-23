@@ -42,7 +42,7 @@ let contenu = document.getElementById("contenu")
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
 for (let serie of videotheque) {
 
-    contenu.insertAdjacentHTML("beforeend",`
+    contenu.insertAdjacentHTML("beforeend", `
     <div>
         <ul>
             <li><h2>${serie.titre}</h2></li>
@@ -54,7 +54,7 @@ for (let serie of videotheque) {
             <li><p>J'en ai vu ${serie.nombreEpisodesVues}.</p></li>
         </ul>
     </div>
-    `);
+    `); 
 
 }
 
