@@ -39,14 +39,14 @@ videotheque.push(thewalkingdead);
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
 
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
-for ( let i = 0; i < videotheque.length; i++) {
-    console.log(videotheque[i].titre);
-    console.log(`Réalisé par ${videotheque[i].realisateurs}`);
-    console.log(`Genre : ${videotheque[i].genre}`);
-    console.log(`Synopsis : ${videotheque[i].description}`);
-    console.log(`Durée moyenne d'un épisode ${videotheque[i].dureeEpisode} minutes.`);
-    console.log(`Il y a ${videotheque[i].nombreEpisodesTotal} épisodes en tout.`);
-    console.log(`J'en ai vu ${videotheque[i].nombreEpisodesVues}.`);
-    console.log("========================================");
+for ( let serie of videotheque ) {
+    console.log(serie.titre);
+    console.log(`Réalisé par ${serie.realisateurs}`);
+    console.log(`Genre : ${serie.genre}`);
+    console.log(`Synopsis : ${serie.description}`);
+    console.log(`Durée moyenne d'un épisode ${serie.dureeEpisode} minutes.`);
+    console.log(`Il y a ${serie.nombreEpisodesTotal} épisodes en tout.`);
+    console.log(`J'en ai vu ${serie.nombreEpisodesVues}.`);
+    console.log("================================================");
 }
 
