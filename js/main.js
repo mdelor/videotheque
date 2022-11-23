@@ -25,7 +25,7 @@ let sherlock = new serie("Sherlock", "Mark Gatiss et Steven Moffat", 90, 14, 12,
 
 let fmab = new serie("Fullmetal Alchemist Brotherood", "Yasuhiro Irie", 24, 64, 64, "Mystère militaire dans un univers uchronique avec des pays imaginaires et de nombreux élements fantastiques.", "Deux frères Edward et Alphonse Elric sont alchimistes, une science qui permet de transformer de la matière en respectant le principe de l'échange équivalent. Un jour suite à la mort traumatique de leur mère alors qu'ils sont encore enfants ils décident de braver l'interdit : tenter de ressusciter leur mère grâce à l'alchimie. L'échec de cette expérience prive edward d'un bras et une jambe et Alphonse de son corps entier, il sera contraint de vivre dans une armure vide.")
 
-let thewalkingdead = new serie("The Walking Dead", "Frank Darabont", 45, 177, 1, "Apocalypse zombie.", "L'histoire suit Rick Grimes, l'adjoint du shérif local, alors qu'il se réveille d'un coma de plusieurs semaines pour découvrir un monde ravagé par une épidémie de zombie. Aprés avoir retrouvé sa famille il devient rapidement le chef d'une bande de survivants. Ils devront faire face aux morts-vivants, au manque de ressources et aux autres survivants parfois mal intentionnés.")
+let theWalkingDead = new serie("The Walking Dead", "Frank Darabont", 45, 177, 1, "Apocalypse zombie.", "L'histoire suit Rick Grimes, l'adjoint du shérif local, alors qu'il se réveille d'un coma de plusieurs semaines pour découvrir un monde ravagé par une épidémie de zombie. Aprés avoir retrouvé sa famille il devient rapidement le chef d'une bande de survivants. Ils devront faire face aux morts-vivants, au manque de ressources et aux autres survivants parfois mal intentionnés.")
 
 // création d'un tableau videotheque pour contenir chaque objet serie crée précedemment
 let videotheque = [];
@@ -35,18 +35,26 @@ videotheque.push(breakingBad);
 videotheque.push(rickEtMorty);
 videotheque.push(sherlock);
 videotheque.push(fmab);
-videotheque.push(thewalkingdead);
+videotheque.push(theWalkingDead);
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
 
+let contenu = document.getElementById("contenu")
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
-for ( let serie of videotheque ) {
-    console.log(serie.titre);
-    console.log(`Réalisé par ${serie.realisateurs}`);
-    console.log(`Genre : ${serie.genre}`);
-    console.log(`Synopsis : ${serie.description}`);
-    console.log(`Durée moyenne d'un épisode ${serie.dureeEpisode} minutes.`);
-    console.log(`Il y a ${serie.nombreEpisodesTotal} épisodes en tout.`);
-    console.log(`J'en ai vu ${serie.nombreEpisodesVues}.`);
-    console.log("================================================");
+for (let serie of videotheque) {
+
+    contenu.insertAdjacentHTML("beforeend",`
+    <div>
+        <ul>
+            <li><h2>${serie.titre}</h2></li>
+            <li><p>Réalisé par ${serie.realisateurs}</p></li>
+            <li><p>Genre : ${serie.genre}</p></li>
+            <li><p>Synopsis : ${serie.description}</p></li>
+            <li><p>Durée moyenne d'un épisode ${serie.dureeEpisode} minutes.</p></li>
+            <li><p>Il y a ${serie.nombreEpisodesTotal} épisodes en tout.</p></li>
+            <li><p>J'en ai vu ${serie.nombreEpisodesVues}.</p></li>
+        </ul>
+    </div>
+    `);
+
 }
 
