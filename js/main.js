@@ -15,7 +15,7 @@ class serie {
 
 // ici on crée une entrée pour chaque série manuellement (todo : une méthode d'ajout un peu plus automatique pe un formulaire ?)
 let erased = new serie("ERASED", "Tomoshiko It" + "\u014D", 24, 12, 12, "Un thriller avec des élements fantastiques.", "Basé sur le manga de Kei Sanbe du même nom ERASED raconte l'histoire d'un homme de 29 ans Satoru Fujinuma qui se retrouve projeté dans le passé lorsqu'il est sur le point de mourir. Quand sa mère est assassiné devant lui il est envoyé dans le passé 18 ans en arrière et obtient l'oppotrtunité de sauver sa mère mais également des victimes de kidnappings qui se trouve être 3 amis d'enfance.");
-// le \u014D est présent pour écrire un o long (systeme Hepburn de romanisation du japonais)
+// le \u014D est présent pour écrire un 014D long (systeme Hepburn de romanisation du japonais)
 
 let breakingBad = new serie("Breaking Bad", "Vince Gilligan", 48, 62, 30, "Une comédie noire avec des élements de thriller d'histoire de gang et de drogue.", "Walter White est un professeur de chimie dans un lycée d'Albuquerque. Quand un jour on lui diagnostique un cancer, dont il ne peut pas payer le traitement, il décide de passer le temps qu'il lui reste à gagner beacoup d'argent pour mettre sa famille à l'abri. Il s'associe à un ancien élève devenu délinquant Jessie Pinkman pour commencer à produire et vendre de la méthamphétamine.");
 
@@ -40,6 +40,13 @@ videotheque.push(thewalkingdead);
 
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
 for ( let i = 0; i < videotheque.length; i++) {
-    console.log(videotheque[i]);
+    console.log(videotheque[i].titre);
+    console.log(`Réalisé par ${videotheque[i].realisateurs}`);
+    console.log(`Genre : ${videotheque[i].genre}`);
+    console.log(`Synopsis : ${videotheque[i].description}`);
+    console.log(`Durée moyenne d'un épisode ${videotheque[i].dureeEpisode} minutes.`);
+    console.log(`Il y a ${videotheque[i].nombreEpisodesTotal} épisodes en tout.`);
+    console.log(`J'en ai vu ${videotheque[i].nombreEpisodesVues}.`);
+    console.log("========================================");
 }
 
