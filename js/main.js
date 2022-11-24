@@ -38,7 +38,7 @@ videotheque.push(fmab);
 videotheque.push(theWalkingDead);
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
 
-let contenu = document.getElementById("contenu")
+let contenu = document.getElementById("contenu");
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
 for (let serie of videotheque) {
 
