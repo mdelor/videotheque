@@ -1,6 +1,6 @@
 :root {
     --backgrounddark: #03312e;
-    --backgroundlight: #5ed18e;
+    --backgroundlight: #72b68e;
     --lightfontcolor:#eff1e9;
     --darkfontcolor:#414141;
     --adjustcolor: #00120b;  
@@ -20,6 +20,11 @@ h1,h2{
 
 section li {
     list-style-type: none;
+    border: 1px solid var(--adjustcolor);
+}
+
+section li:first-child {
+    border: none;
 }
 
 section {
@@ -28,11 +33,16 @@ section {
     justify-content: space-around;
 }
 
-section div {
+section > div {
     width:30%;
     background: var(--backgroundlight);
     margin: 5px;
     box-shadow: var(--adjustcolor) 0px 13px 27px -5px,var(--adjustcolor) 0px 8px 16px -8px;
+}
+
+section > div > div {
+    display: flex;
+    justify-content: space-between;
 }
 
 section div img {
@@ -40,5 +50,18 @@ section div img {
 }
 
 section ul{
-    padding-right: 40px;
+    padding: 0 40px;
+}
+
+.barre-progression {
+    height : 30px;
+    width: 60%;
+    margin: auto;
+    border: 2px solid var(--adjustcolor);
+    background-color: var(--backgrounddark);
+}
+
+.progression {
+    height:30px;
+    background-color: var(--lightfontcolor);
 }

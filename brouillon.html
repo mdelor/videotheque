@@ -1,0 +1,60 @@
+<!--Ce fichier sert à éditer les bouts de code HTML écrit dans javascript-->
+
+<!--serie-->
+
+<div>
+    <img src="${video.logo}" alt="le logo de ${video.titre}"></img>
+    <ul>
+        <li>
+            <h2>${video.titre}</h2>
+        </li>
+        <li>
+            <h3>Réalisé par : </h3>
+            <p>${video.realisateurs}</p>
+        </li>
+        <li>
+            <h3>Genre : </h3>
+            <p>${video.genre}</p>
+        </li>
+        <li>
+            <h3>Synopsis : </h3>
+            <p>${video.description}</p>
+        </li>
+    </ul>
+    <p class="duree-episode">Durée moyenne d'un épisode ${video.dureeEpisode} minutes.</p>
+    <div>
+        <p>Episodes : </p>
+        <p>${video.nombreEpisodesVues} / ${video.nombreEpisodesTotal}</p></div>
+        <div class="barre-progression">
+            <div class="progression"></div>
+        </div>
+    
+</div>
+
+<!--film-->
+
+<div>
+    <img src="${video.logo}" alt="le logo de ${video.titre}"></img>
+    <ul>
+        <li>
+            <h2>${video.titre}</h2>
+        </li>
+        <li>
+            <h3>Réalisé par : </h3>
+            <p>${video.realisateurs}</p>
+        </li>
+        <li>
+            <h3>Genre : </h3>
+            <p>${video.genre}</p>
+        </li>
+        <li>
+            <h3>Synopsis : </h3>
+            <p>${video.description}</p>
+        </li>
+    </ul>
+    <p class="duree-film">${video} minutes.</p>
+    <div>
+        <p>${completionFilm}</p>
+        <div class="barre-progression"></div>
+    </div>
+</div>
