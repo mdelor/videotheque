@@ -12,6 +12,18 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
+nav {
+    display: flex;
+    width: 20%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav img {
+    width:30px;
+}
+
 h1,h2{
     text-align: center;
     color: var(--lightfontcolor);
@@ -34,18 +46,40 @@ section {
 }
 
 section > div {
-    width:30%;
+
     background: var(--backgroundlight);
     margin: 5px;
     box-shadow: var(--adjustcolor) 0px 13px 27px -5px,var(--adjustcolor) 0px 8px 16px -8px;
 }
 
-section > div > div {
+#series > div {
+
+    width:30%;
+
+}
+
+#films > div {
+    width: 48%;
+    display: flex;
+    align-items: center;
+}
+
+#series > div > div {
     display: flex;
     justify-content: space-between;
 }
 
-section div img {
+#films > div > div > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#films div img {
+    max-width: 310px;
+    margin-left: 10px;
+}
+
+#series div img {
     width: 100%;
 }
 

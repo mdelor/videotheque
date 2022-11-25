@@ -64,7 +64,9 @@ videotheque.push(noCountryForOldMen);
 videotheque.push("testing")
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
 
-let contenu = document.getElementById("contenu");
+let films = document.getElementById("films");
+let series = document.getElementById("series");
+let completion = 0;
 //on dclare un compteur i pour la boucle
 let i = 0;
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets video
@@ -75,7 +77,7 @@ for (let video of videotheque) {
         case video instanceof serie:
             //on effectue ces instructions si on a affaire à une série.
 
-            contenu.insertAdjacentHTML("beforeend", `
+            series.insertAdjacentHTML("beforeend", `
 
             <div>
                 <img src="${video.logo}" alt="le logo de ${video.titre}"></img>
@@ -108,30 +110,8 @@ for (let video of videotheque) {
 
             `);
             //on calcule le pourcentage d'pisode vue et onl'nevoie vers une barre de progression
-            let completion = Math.round(video.nombreEpisodesVues / video.nombreEpisodesTotal * 100);
-            let progression = document.getElementsByClassName('progression');
-            let progressionStyle = window.getComputedStyle(progression[i]);
-            //progressionStyle.setProperty("width",`${completion}%`);
-            //progression[i].setAttribute("style", `width : ${completion}%`);
+            completion = Math.round(video.nombreEpisodesVues / video.nombreEpisodesTotal * 100);
 
-            //on vient ajouter des styles en fonction de la complétion de la série
-            switch (true) {
-                //si la série est finie
-                case (completion == 100):
-                    progression[i].setAttribute("style", `width : ${completion}%; background-color: green`);
-                    break;
-                case (completion > 50 && completion < 100):
-                    progression[i].setAttribute("style", `width : ${completion}%; background-color: orange`);
-                    break;
-                case (completion > 0 && completion < 50):
-                    progression[i].setAttribute("style", `width : ${completion}%; background-color: red`);
-                    break;
-                default:
-                    progression[i].setAttribute("style", `width : ${completion}%`);
-            }
-
-            //Incrémentation de notre compteur
-            i++;
 
             break;
 
@@ -139,45 +119,72 @@ for (let video of videotheque) {
         case video instanceof film:
             //on effectue ces instructions si on a affaire à un film.
 
-
-            let completionFilm = Math.round(video.dureeFilmVue / video.dureeFilmTotal * 100)
-            contenu.insertAdjacentHTML("beforeend", `
+            completion = Math.round(video.dureeFilmVue / video.dureeFilmTotal * 100)
+            films.insertAdjacentHTML("beforeend", `
             
-            <div>
-                <img src="${video.affiche}" alt="le logo de ${video.affiche}"></img>
-                <ul>
-                    <li>
-                        <h2>${video.titre}</h2>
-                    </li>
-                    <li>
-                        <h3>Réalisé par : </h3>
-                        <p>${video.realisateurs}</p>
-                    </li>
-                    <li>
-                        <h3>Genre : </h3>
-                        <p>${video.genre}</p>
-                    </li>
-                    <li>
-                        <h3>Synopsis : </h3>
-                        <p>${video.description}</p>
-                    </li>
-                </ul>
-                <p class="duree-film">${video.dureeFilmTotal} minutes.</p>
                 <div>
-                    <p>${completionFilm}%</p>
-                    <div class="barre-progression">
-                        <div class="progression"></div>
+                    <img src="${video.affiche}" alt="le logo de ${video.affiche}"></img>
+                    <div>
+                        <ul>
+                            <li>
+                                <h2>${video.titre}</h2>
+                            </li>
+                            <li>
+                                <h3>Réalisé par : </h3>
+                                <p>${video.realisateurs}</p>
+                            </li>
+                            <li>
+                                <h3>Genre : </h3>
+                                <p>${video.genre}</p>
+                            </li>
+                            <li>
+                                <h3>Synopsis : </h3>
+                                <p>${video.description}</p>
+                            </li>
+                        </ul>
+                        <p class="duree-film">${video.dureeFilmTotal} minutes.</p>
+                        <div>
+                            <p>${completion}%</p>
+                            <div class="barre-progression">
+                                <div class="progression"></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             `);
+
             break;
 
         // par défaut on renvoie un warning dans la console et on ne fait rien d'autre.
         default:
-            console.warn("Cet objet n'est ni une série ni un film :", video)
+            console.error("Cet objet n'est ni une série ni un film :", video)
     }
+
+    let progression = document.getElementsByClassName('progression');
+
+    //on vient ajouter des styles en fonction de la complétion
+    switch (true) {
+        //gestion erreurs
+        case(progression[i]==null):
+            console.warn("On ignore l'élément précédent",video);
+            break;
+        case (completion == 100):
+            progression[i].setAttribute("style", `width : ${completion}%; background-color: green`);
+            break;
+        case (completion >= 50 && completion < 100):
+            progression[i].setAttribute("style", `width : ${completion}%; background-color: orange`);
+            break;
+        case (completion > 0 && completion < 50):
+            progression[i].setAttribute("style", `width : ${completion}%; background-color: red`);
+            break;
+        default:
+            progression[i].setAttribute("style", `width : ${completion}%`);
+    }
+
+    //Incrémentation de notre compteur
+    i++;
+
 }
 
 
