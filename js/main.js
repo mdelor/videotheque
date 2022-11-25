@@ -83,7 +83,7 @@ for (let video of videotheque) {
                 <img src="${video.logo}" alt="le logo de ${video.titre}"></img>
                 <ul>
                     <li>
-                        <h2>${video.titre}</h2>
+                        <h3>${video.titre}</h3>
                     </li>
                     <li>
                         <h3>Réalisé par : </h3>
@@ -127,7 +127,7 @@ for (let video of videotheque) {
                     <div>
                         <ul>
                             <li>
-                                <h2>${video.titre}</h2>
+                                <h3>${video.titre}</h3>
                             </li>
                             <li>
                                 <h3>Réalisé par : </h3>
