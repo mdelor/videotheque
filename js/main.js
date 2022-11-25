@@ -1,4 +1,4 @@
-// on définit la classe serie qui sert à definir une serie à partir de quelques clefs (todo : pe ajouter des clefs ?)
+// on définit la classe video qui sert à definir une video à partir de quelques clefs (todo : pe ajouter des clefs ?)
 class serie {
     constructor(titre, realisateurs, dureeEpisode, nombreEpisodesTotal, nombreEpisodesVues, genre, description, logo) {
         this.titre = titre;
@@ -12,7 +12,17 @@ class serie {
     };
 }
 
-//c'est une videotheque pas une serietheque, il serait bon de definir également une classe films
+class film {
+    constructor(titre, realisateurs, dureeFilmTotal, dureeFilmVue, genre, description, logo) {
+        this.titre = titre;
+        this.realisateurs = realisateurs;
+        this.dureeFilmTotal = dureeFilmTotal;
+        this.dureeFilmVue = dureeFilmVue;
+        this.genre = genre;
+        this.description = description;
+        this.logo = logo;
+    };
+}
 
 // ici on crée une entrée pour chaque série manuellement (todo : une méthode d'ajout un peu plus automatique pe un formulaire ?)
 let erased = new serie("ERASED", "Tomoshiko It" + "\u014D", 24, 12, 12, "Un thriller avec des élements fantastiques.", "Basé sur le manga de Kei Sanbe du même nom ERASED raconte l'histoire d'un homme de 29 ans Satoru Fujinuma qui se retrouve projeté dans le passé lorsqu'il est sur le point de mourir. Quand sa mère est assassiné devant lui il est envoyé dans le passé 18 ans en arrière et obtient l'oppotrtunité de sauver sa mère mais également des victimes de kidnappings qui se trouve être 3 amis d'enfance.","img/erased.png");
@@ -28,7 +38,8 @@ let fmab = new serie("Fullmetal Alchemist Brotherood", "Yasuhiro Irie", 24, 64, 
 
 let theWalkingDead = new serie("The Walking Dead", "Frank Darabont", 45, 177, 1, "Apocalypse zombie.", "L'histoire suit Rick Grimes, l'adjoint du shérif local, alors qu'il se réveille d'un coma de plusieurs semaines pour découvrir un monde ravagé par une épidémie de zombie. Aprés avoir retrouvé sa famille il devient rapidement le chef d'une bande de survivants. Ils devront faire face aux morts-vivants, au manque de ressources et aux autres survivants parfois mal intentionnés.","img/thewalkingdead.png")
 
-// création d'un tableau videotheque pour contenir chaque objet serie crée précedemment
+
+// création d'un tableau videotheque pour contenir chaque objet video crée précedemment
 let videotheque = [];
 
 videotheque.push(erased);
@@ -40,20 +51,34 @@ videotheque.push(theWalkingDead);
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
 
 let contenu = document.getElementById("contenu");
-// boucle pour afficher chaque élément du tableau videotheque contenant les objets serie (todo : les afficher mieux que dans un console.log)
-for (let serie of videotheque) {
+// boucle pour afficher chaque élément du tableau videotheque contenant les objets video (todo : les afficher mieux que dans un console.log)
+for (let video of videotheque) {
+
+
+if (video instanceof serie) {
 
     contenu.insertAdjacentHTML("beforeend", `
     <div>
-        <img src="${serie.logo}" alt="le logo de ${serie.titre}"></img>
+        <img src="${video.logo}" alt="le logo de ${video.titre}"></img>
         <ul>
-            <li><p>Réalisé par ${serie.realisateurs}</p></li>
-            <li><p>Genre : ${serie.genre}</p></li>
-            <li><p>Synopsis : ${serie.description}</p></li>
-            <li><p>Durée moyenne d'un épisode ${serie.dureeEpisode} minutes.</p></li>
-            <li><p>Il y a ${serie.nombreEpisodesTotal} épisodes en tout.</p></li>
-            <li><p>J'en ai vu ${serie.nombreEpisodesVues}.</p></li>
+            <li><p>Réalisé par ${video.realisateurs}</p></li>
+            <li><p>Genre : ${video.genre}</p></li>
+            <li><p>Synopsis : ${video.description}</p></li>
+            <li><p>Durée moyenne d'un épisode ${video.dureeEpisode} minutes.</p></li>
+            <li><p>Il y a ${video.nombreEpisodesTotal} épisodes en tout.</p></li>
+            <li><p>J'en ai vu ${video.nombreEpisodesVues}.</p></li>
         </ul>
     </div>
     `);
+    }
+
+    else {
+        contenu.insertAdjacentHTML("beforeend", `
+
+
+        `);
+    }
 }
+
+
+

@@ -1,26 +1,20 @@
 :root {
     --backgrounddark: #03312e;
-    --backgroundlight: #388659;
-    --lightfontcolor:#c9cbc4;
-    --darkfontcolor:#a7a3a3;
-    --adjustcolor: #00120b;
-
-
-
-
-    
+    --backgroundlight: #5ed18e;
+    --lightfontcolor:#eff1e9;
+    --darkfontcolor:#414141;
+    --adjustcolor: #00120b;  
 }
 
 body {
     background-color: var(--backgrounddark);
-    color:var(--lightfontcolor);
+    color:var(--darkfontcolor);
     font-family: Helvetica, sans-serif;
 }
 
 h1,h2{
     text-align: center;
-    background-color: var(--adjustcolor);
-    color: var(--darkfontcolor);
+    color: var(--lightfontcolor);
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -38,7 +32,7 @@ section div {
     width:30%;
     background: var(--backgroundlight);
     margin: 5px;
-    box-shadow: var(--fontcolor) 0px 13px 27px -5px,var(--fontcolor) 0px 8px 16px -8px;
+    box-shadow: var(--adjustcolor) 0px 13px 27px -5px,var(--adjustcolor) 0px 8px 16px -8px;
 }
 
 section div img {
