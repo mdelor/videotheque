@@ -30,6 +30,11 @@ h1,h2{
     font-family: 'Times New Roman', Times, serif;
 }
 
+
+h3,p {
+    margin: 10px;
+}
+
 section li {
     list-style-type: none;
     border: 1px solid var(--adjustcolor);
@@ -77,6 +82,13 @@ section > div {
 #films div img {
     max-width: 310px;
     margin-left: 10px;
+}
+
+#films li:nth-of-type(4) {
+    max-height: 200px;
+    overflow:auto;
+    /* ne marche que sur firefox pour l'instant */
+    scrollbar-color: var(--adjustcolor) var(--darkfontcolor);
 }
 
 #series div img {
