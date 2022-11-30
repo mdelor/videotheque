@@ -1,4 +1,4 @@
-// on définit la classe video qui sert à definir une video à partir de quelques clefs (todo : pe ajouter des clefs ?)
+// on définit les classes serie et film qui servent à définir des video à partir de quelques clefs (todo : pe ajouter des clefs ?)
 class serie {
     constructor(titre, realisateurs, dureeEpisode, nombreEpisodesTotal, nombreEpisodesVues, genre, description, logo) {
         this.titre = titre;
@@ -45,7 +45,6 @@ let kimiNoNawa = new film("Kimi No Nawa", "Makoto Shinkai", 110, 110, "Vie ordin
 let laListeDeSchindler = new film("La Liste de Schindler", "Steven Spielberg", 195, 50, "Historique militaire", "À Cracovie, durant la Seconde Guerre mondiale, les soldats allemands forcent les juifs à être parqués dans le ghetto de Cracovie. Oskar Schindler, industriel allemand et membre du parti nazi. Ne pensant tout d'abord qu'à son profit, il corrompt des membres de la Wehrmacht et des officiers SS pour acquérir une usine de métal émaillé. Dès lors, pour l'aider dans la direction de son entreprise, il engage un comptable juif, Itzhak Stern. Celui-ci est par ailleurs un représentant local de la communauté juive et a des contacts parmi le marché noir et la communauté juive des affaires. Stern aide alors Schindler à trouver des financements pour lancer son entreprise. Schindler entretient des relations amicales avec les nazis, profite de sa fortune, de son statut de « Herr Direktor » et a Stern comme bras droit. Il emploie une main d'œuvre juive bon marché dans son usine. De son côté, Stern convainc Schindler d'engager le plus possible d'employés essentiels à l'effort de guerre allemand : ainsi, celui-ci les sauve de la déportation dans les camps de concentration ou d'une exécution sommaire.", "img/lalistedeschindler.jpg");
 
 let noCountryForOldMen = new film("No Country for Old Men", "les frères Cohen", 122, 61, "Thriller avec des élements de Western", "Texas, 1980. Alors qu'il chasse près de la frontière du Mexique, Llewelyn Moss  découvre par hasard les cadavres d'une bande de trafiquants de drogue et une mallette contenant deux millions de dollars, dont il s'empare. Il se retrouve poursuivi par des complices des trafiquants mexicains et prend la fuite, tandis que sa femme Carla Jean se réfugie chez sa mère à Odessa...", "img/nocountryforoldmen.jpg");
-
 
 // création d'un tableau videotheque pour contenir chaque objet video crée précedemment
 let videotheque = [];
@@ -109,12 +108,10 @@ for (let video of videotheque) {
              </div>
 
             `);
-            //on calcule le pourcentage d'pisode vue et onl'nevoie vers une barre de progression
+            //on calcule le pourcentage d'episode vue et on l'envoi vers une barre de progression
             completion = Math.round(video.nombreEpisodesVues / video.nombreEpisodesTotal * 100);
 
-
             break;
-
 
         case video instanceof film:
             //on effectue ces instructions si on a affaire à un film.
@@ -186,8 +183,3 @@ for (let video of videotheque) {
     i++;
 
 }
-
-
-
-
-
