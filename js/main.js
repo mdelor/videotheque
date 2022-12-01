@@ -59,9 +59,26 @@ videotheque.push(lesAffranchis);
 videotheque.push(kimiNoNawa);
 videotheque.push(laListeDeSchindler);
 videotheque.push(noCountryForOldMen);
+
+
 //On ajoute un intrus pour vérifier qu'il est écarté.
 videotheque.push("testing")
 // ici on pourra ajouter chaque élement série crée en plus manuellement (todo : une méthode d'ajout un peu plus automatique)
+
+const movieFetch = fetch("http://localhost:3000/api/movies")
+
+const afficherMovieFetch = movieFetch
+    .then(function (reponse) {
+        if (reponse.ok) {
+            return reponse.json();
+        }
+    })
+    .then(function(valeur) {
+        console.log(valeur);
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
 
 let films = document.getElementById("films");
 let series = document.getElementById("series");
