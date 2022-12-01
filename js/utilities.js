@@ -1,0 +1,1 @@
+const toPercent = (partiel,total) => Math.round( partiel/total * 100 );
