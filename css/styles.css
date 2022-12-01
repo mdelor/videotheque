@@ -111,3 +111,8 @@ section ul{
     height:30px;
     background-color: var(--lightfontcolor);
 }
+
+#stats {
+    background-color: var(--backgroundlight);
+    color: var(--darkfontcolor);
+}

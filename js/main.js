@@ -1,7 +1,15 @@
 let films = document.getElementById("films");
 let series = document.getElementById("series");
+//on initie des compteurs pour 
+// la completion d'une série ou film
 let completion = 0;
-//on dclare un compteur i pour la boucle
+// la durée total de la vidéothèque
+let dureeTotalVideotheque = 0;
+//la durée vue de la vidéothèque
+let dureeVueVideotheque = 0;
+//le nombre de vidéo complétés à 100%
+let videoCompletes = 0;
+//un compteur i pour la boucle
 let i = 0;
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets video
 for (let video of videotheque) {
@@ -46,6 +54,9 @@ for (let video of videotheque) {
             //on calcule le pourcentage d'episode vue et on l'envoi vers une barre de progression
             completion = toPercent(video.nombreEpisodesVues, video.nombreEpisodesTotal);
 
+            dureeTotalVideotheque += dureeSerie(video.nombreEpisodesTotal, video.dureeEpisode);
+            dureeVueVideotheque += dureeSerie(video.nombreEpisodesVues, video.dureeEpisode);
+
             break;
 
         case video instanceof film:
@@ -74,7 +85,7 @@ for (let video of videotheque) {
                                 <p>${video.description}</p>
                             </li>
                         </ul>
-                        <p class="duree-film">${video.dureeFilmTotal} minutes.</p>
+                        <p class="duree-film">${toHoursandMinutes(video.dureeFilmTotal)}</p>
                         <div>
                             <p>${completion}%</p>
                             <div class="barre-progression">
@@ -85,6 +96,9 @@ for (let video of videotheque) {
             </div>
 
             `);
+
+            dureeTotalVideotheque += video.dureeFilmTotal;
+            dureeVueVideotheque += video.dureeFilmVue;
 
             break;
 
@@ -103,6 +117,8 @@ for (let video of videotheque) {
             break;
         case (completion == 100):
             progression[i].setAttribute("style", `width : ${completion}%; background-color: green`);
+            // on vient également compter le nombre de vidéo complétés à 100%
+            videoCompletes ++;
             break;
         case (completion >= 50 && completion < 100):
             progression[i].setAttribute("style", `width : ${completion}%; background-color: orange`);
@@ -118,3 +134,16 @@ for (let video of videotheque) {
     i++;
 
 }
+
+
+
+//affichage des statitistiques sur l'ensemble de la vidéothèque
+
+const stats = document.getElementById("stats");
+stats.insertAdjacentHTML("beforeend", `
+<p>Nombre total de séries et films complètement terminés : ${videoCompletes}/${i-1}</p>
+<div>
+    <p>Temps total regardé : ${toHoursandMinutes (dureeVueVideotheque)}</p>
+    <p>Temps total des vidéos : ${toHoursandMinutes (dureeTotalVideotheque)}</p>
+</div>
+`)
