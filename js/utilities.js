@@ -1,5 +1,3 @@
-const baseUrl = window.location.origin;
-
 const toPercent = (partiel,total) => Math.round( partiel/total * 100 );
 
 const toHoursandMinutes = (duree) => {

@@ -122,7 +122,7 @@ main a {
 }
 
 .barre-progression {
-    height : 30px;
+    height : 10px;
     width: 60%;
     margin: auto;
     border: 2px solid var(--adjustcolor);
@@ -130,7 +130,7 @@ main a {
 }
 
 .progression {
-    height:30px;
+    height:7px;
     background-color: var(--lightfontcolor);
 }
 
