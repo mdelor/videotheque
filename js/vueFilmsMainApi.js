@@ -1,4 +1,3 @@
-
 let films = document.getElementById("films");
 let series = document.getElementById("series");
 //on initie des compteurs pour 
@@ -13,7 +12,6 @@ let videoCompletes = 0;
 //un compteur i pour la boucle
 let i = 0;
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets video
-
 
 const movieFetch = fetch("http://localhost:3000/api/movies")
 
@@ -149,24 +147,17 @@ const afficherMovieFetch = movieFetch
             i++;
 
         });
-        
+
         //affichage des statitistiques sur l'ensemble de la vidéothèque
         const stats = document.getElementById("stats");
         stats.insertAdjacentHTML("beforeend", `
             <p>Nombre total de séries et films complètement terminés : ${videoCompletes}/${i}</p>  
             <p>Temps total regardé : ${toHoursandMinutes(dureeVueVideotheque)}</p>
             <p>Temps total des vidéos : ${toHoursandMinutes(dureeTotalVideotheque)}</p>
-            <p>Soit ${toPercent(dureeVueVideotheque,dureeTotalVideotheque)} % vue en tout</p>
+            <p>Soit ${toPercent(dureeVueVideotheque, dureeTotalVideotheque)} % vue en tout</p>
         `)
 
     })
     .catch(function (err) {
         console.log(err);
     });
-
-
-
-
-
-
-
