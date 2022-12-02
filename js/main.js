@@ -61,6 +61,7 @@ const afficherMovieFetch = movieFetch
                         <div class="progression"></div>
                     </div>
                 </div>
+                <a class="text-right" href="fiche-video.html?${video.id}">Details</a>
              </div>
 
             `);
@@ -104,6 +105,7 @@ const afficherMovieFetch = movieFetch
                             <div class="barre-progression">
                                 <div class="progression"></div>
                         </div>
+                        <a class="text-right" href="fiche-video.html?${video.id}">Details</a>
                     </div>
                 </div>
             </div>
