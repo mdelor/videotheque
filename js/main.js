@@ -147,13 +147,14 @@ const afficherMovieFetch = movieFetch
             i++;
 
         });
+        
+        //affichage des statitistiques sur l'ensemble de la vidéothèque
         const stats = document.getElementById("stats");
         stats.insertAdjacentHTML("beforeend", `
-            <p>Nombre total de séries et films complètement terminés : ${videoCompletes}/${i}</p>
-            <div>
-                <p>Temps total regardé : ${toHoursandMinutes(dureeVueVideotheque)}</p>
-                <p>Temps total des vidéos : ${toHoursandMinutes(dureeTotalVideotheque)}</p>
-            </div>
+            <p>Nombre total de séries et films complètement terminés : ${videoCompletes}/${i}</p>  
+            <p>Temps total regardé : ${toHoursandMinutes(dureeVueVideotheque)}</p>
+            <p>Temps total des vidéos : ${toHoursandMinutes(dureeTotalVideotheque)}</p>
+            <p>Soit ${toPercent(dureeVueVideotheque,dureeTotalVideotheque)} % vue en tout</p>
         `)
 
     })
@@ -165,5 +166,5 @@ const afficherMovieFetch = movieFetch
 
 
 
-//affichage des statitistiques sur l'ensemble de la vidéothèque
+
 
