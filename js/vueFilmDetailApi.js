@@ -47,7 +47,7 @@ movieFetch
                     <div class="progression"></div>
                 </div>
             </div>
-            <a class="text-right" href="fiche-video.html?id=${video.id}">Details</a>
+            <a class="text-right" href="index.html">Retour Accueil</a>
          </div>
 
         `);
@@ -88,7 +88,7 @@ movieFetch
                         <div class="barre-progression">
                             <div class="progression"></div>
                     </div>
-                    <a class="text-right" href="fiche-video.html?id=${video._id}">Details</a>
+                    <a class="text-right" href="index.html">Retour Accueil</a>
                 </div>
             </div>
         </div>
