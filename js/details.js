@@ -94,7 +94,8 @@ movieFetch
         </div>
 
         `);
-        
+
+        };
         let progression = document.getElementsByClassName('progression');
 
         //on vient ajouter des styles en fonction de la complétion
@@ -116,9 +117,9 @@ movieFetch
                 break;
             default:
                 progression[0].setAttribute("style", `width : ${completion}%`);
-        }
-
         };
+
+
     })
 
     .catch(function (err) {
