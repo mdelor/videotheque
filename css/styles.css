@@ -145,8 +145,11 @@ main a {
     color: var(--darkfontcolor);
 }
 
-footer section {
+footer {
     margin: 0;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
 }
 
 footer p {
