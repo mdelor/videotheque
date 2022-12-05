@@ -1,3 +1,9 @@
+/*Import police portfolio */
+@font-face {
+    font-family: "PanPizza";
+    src: url(../font/panpizza.woff2);
+}
+
 :root {
     --backgrounddark: #03312e;
     --backgroundlight: #72b68e;
@@ -137,4 +143,19 @@ main a {
 #stats {
     background-color: var(--backgroundlight);
     color: var(--darkfontcolor);
+}
+
+footer section {
+    margin: 0;
+}
+
+footer p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+footer a {
+    font-family: "PanPizza", serif;
+    font-size: 2em;
+    text-decoration: none;
 }
