@@ -1,6 +1,6 @@
 const monFilm = new URLSearchParams(window.location.search).get("id");
 
-const urlFetch = `http://localhost:3000/api/movies/${monFilm}`;
+const urlFetch = api + `api/movies/${monFilm}`;
 
 const movieFetch = fetch(urlFetch);
 let films = document.getElementById("films");

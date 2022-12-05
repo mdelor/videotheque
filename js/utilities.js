@@ -1,3 +1,5 @@
+const api ="https://bored-pike-nightgown.cyclic.app/"
+
 const toPercent = (partiel,total) => Math.round( partiel/total * 100 );
 
 const toHoursandMinutes = (duree) => {

@@ -13,7 +13,7 @@ let videoCompletes = 0;
 let i = 0;
 // boucle pour afficher chaque élément du tableau videotheque contenant les objets video
 
-const movieFetch = fetch("http://localhost:3000/api/movies")
+const movieFetch = fetch(api + "api/movies")
 
 let videotheque = []
 
